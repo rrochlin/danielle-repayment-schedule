@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical School Loan Repayment Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Medical School Loan Repayment Calculator</h1>
+            <p class="subtitle">Visualize your loan balance and repayment timeline</p>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card">
+                <h3>Loan Details</h3>
+                <p><strong>Annual Tuition:</strong> $96,000</p>
+                <p><strong>Interest Rate:</strong> 8.0%</p>
+                <p><strong>School Duration:</strong> 2 years (6 quarters)</p>
+                <p><strong>Quarterly Disbursement:</strong> $32,000</p>
+            </div>
+
+            <div class="card highlight">
+                <h3>Total at Graduation</h3>
+                <p class="big-number" id="totalAtGraduation">$0</p>
+                <p class="small-text">Principal + Interest</p>
+            </div>
+
+            <div class="card highlight">
+                <h3>Time to Payoff</h3>
+                <p class="big-number" id="payoffTime">0 years</p>
+                <p class="small-text">At current payment level</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="slider-container">
+                <label for="monthlyPayment">
+                    Monthly Payment: <span id="paymentAmount">$2,000</span>
+                </label>
+                <input
+                    type="range"
+                    id="monthlyPayment"
+                    min="500"
+                    max="10000"
+                    step="100"
+                    value="2000"
+                >
+                <div class="slider-labels">
+                    <span>$500</span>
+                    <span>$10,000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="loanChart"></canvas>
+        </div>
+
+        <div class="info-section">
+            <h3>Understanding Your Loan Timeline</h3>
+            <div class="timeline-info">
+                <div class="timeline-phase">
+                    <h4>📚 School Phase (Years 0-2)</h4>
+                    <p>During school, loans are disbursed quarterly ($32,000 per quarter) and interest accrues at 8% annually. No payments are made during this period.</p>
+                </div>
+                <div class="timeline-phase">
+                    <h4>💼 Repayment Phase (After Year 2)</h4>
+                    <p>After graduation, you begin making monthly payments. Use the slider to see how different payment amounts affect your payoff timeline and total interest paid.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Can you refactor this sheet to help my sister see her financial situation with the following facts:
+
+she currently is going to be paying ~96k tuition a year at 8% with loan disbursements/interest starting each quarter of school (3 quarters a year)
+
+She has 2 years of schooling before starting residency and getting a job, where she can begin paying back the loans. I want a graph that can show her the balance accruing over time then a slider she can slide to increase/decrease her monthly payments on the loan to see how fast/slow the balance shrinks
