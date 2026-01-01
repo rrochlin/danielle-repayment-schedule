@@ -1,13 +1,14 @@
 # Medical School Loan Repayment Calculator
 
-An interactive visualization tool to help medical students understand their loan repayment timeline and explore different payment scenarios.
+An interactive visualization tool built with React and MUI to help medical students understand their loan repayment timeline and explore different payment scenarios.
 
 ## Features
 
 - **Loan Accumulation Visualization**: See how your loan balance grows during the 2-year medical school period
 - **Interactive Payment Slider**: Adjust monthly payment amounts to see how they affect your payoff timeline
 - **Real-time Calculations**: Instant updates showing total balance at graduation and time to payoff
-- **Visual Timeline**: Clear graph showing the transition from school phase to repayment phase
+- **MUI X Charts**: Professional, interactive charting with Material-UI design
+- **Responsive Design**: Works beautifully on desktop, tablet, and mobile devices
 
 ## Loan Parameters
 
@@ -16,100 +17,151 @@ An interactive visualization tool to help medical students understand their loan
 - **School Duration**: 2 years (6 quarters)
 - **Disbursement Schedule**: $32,000 per quarter (3 quarters per year)
 
-## How to Use
+## Quick Start
 
-1. Open the application in your web browser
-2. View your projected loan balance at graduation in the summary cards
-3. Use the slider to adjust your monthly payment amount ($500 - $10,000)
-4. Watch the graph update in real-time to show your complete repayment timeline
-5. See how different payment amounts affect your time to payoff
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/) (recommended) or npm
+
+### Installation
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+```
+
+The app will be running at `http://localhost:5173`
+
+### Build for Production
+
+```bash
+# Build the application
+pnpm build
+
+# Preview the production build
+pnpm preview
+```
 
 ## Deploying to GitHub Pages
 
-### Option 1: Using GitHub UI
+### Method 1: Automated Deployment (Recommended)
 
-1. Push this repository to GitHub:
+This project is configured to deploy automatically using `gh-pages`:
+
+```bash
+# Build and deploy to GitHub Pages
+pnpm run deploy
+```
+
+This will:
+1. Build the production bundle
+2. Create/update a `gh-pages` branch
+3. Push the built files to that branch
+4. GitHub Pages will automatically serve your site
+
+### Method 2: Manual Setup
+
+1. **Build the project**:
+   ```bash
+   pnpm build
+   ```
+
+2. **Push to GitHub**:
    ```bash
    git add .
    git commit -m "Add loan repayment calculator"
    git push origin main
    ```
 
-2. Go to your repository on GitHub
-3. Click on **Settings**
-4. Scroll down to **Pages** in the left sidebar
-5. Under **Source**, select **main** branch
-6. Click **Save**
-7. Your site will be published at `https://[username].github.io/[repository-name]`
+3. **Enable GitHub Pages**:
+   - Go to your repository on GitHub
+   - Click **Settings** → **Pages**
+   - Under **Source**, select `gh-pages` branch
+   - Click **Save**
 
-### Option 2: Using GitHub CLI
+4. **Access your site**:
+   - Your site will be available at: `https://[username].github.io/danielle-repayment-schedule`
 
-```bash
-# Commit and push your changes
-git add .
-git commit -m "Add loan repayment calculator"
-git push origin main
+### Updating the Deployment
 
-# Enable GitHub Pages (requires gh CLI)
-gh repo edit --enable-pages --pages-branch main
-```
-
-### Updating the Application
-
-After making any changes:
+After making changes:
 
 ```bash
 git add .
 git commit -m "Update calculator"
 git push origin main
+pnpm run deploy
 ```
 
-GitHub Pages will automatically rebuild and deploy your changes within a few minutes.
+## Tech Stack
 
-## Local Development
+- **React 18** - UI framework
+- **Vite** - Fast build tool and dev server
+- **Material-UI (MUI) v5** - UI component library
+- **MUI X Charts** - Professional charting library
+- **Emotion** - CSS-in-JS styling
 
-To test locally, simply open `index.html` in your web browser:
+## Project Structure
 
-```bash
-open index.html
 ```
-
-Or use a local server:
-
-```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Node.js
-npx serve
-
-# Then open http://localhost:8000 in your browser
+danielle-repayment-schedule/
+├── src/
+│   ├── App.jsx          # Main React component
+│   ├── main.jsx         # Application entry point
+│   └── index.css        # Global styles
+├── index.html           # HTML template
+├── package.json         # Dependencies and scripts
+├── vite.config.js       # Vite configuration
+└── README.md            # This file
 ```
-
-## Technical Details
-
-- **No Build Process Required**: The application uses CDN-hosted libraries and runs entirely in the browser
-- **Chart.js**: Used for interactive loan balance visualization
-- **Vanilla JavaScript**: No framework dependencies, just HTML, CSS, and JS
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-
-## Files
-
-- `index.html` - Main HTML structure
-- `app.js` - Loan calculation logic and chart rendering
-- `styles.css` - Styling and responsive design
-- `README.md` - This file
 
 ## Customization
 
-To modify the loan parameters, edit the constants in `app.js`:
+### Modifying Loan Parameters
+
+Edit the constants in `src/App.jsx`:
 
 ```javascript
-const ANNUAL_TUITION = 96000;
-const QUARTERS_PER_YEAR = 3;
-const SCHOOL_YEARS = 2;
-const ANNUAL_INTEREST_RATE = 0.08;
+const ANNUAL_TUITION = 96000
+const QUARTERS_PER_YEAR = 3
+const SCHOOL_YEARS = 2
+const ANNUAL_INTEREST_RATE = 0.08
 ```
+
+### Changing the Color Theme
+
+The app uses Material-UI theming. Modify the theme in `src/App.jsx`:
+
+```javascript
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',  // Change primary color
+    },
+    secondary: {
+      main: '#388e3c',  // Change secondary color
+    },
+  },
+})
+```
+
+## Available Scripts
+
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build locally
+- `pnpm deploy` - Deploy to GitHub Pages
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
 ## License
 
